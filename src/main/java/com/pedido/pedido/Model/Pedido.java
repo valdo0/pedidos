@@ -14,41 +14,15 @@ public class Pedido {
     private String telefonoDestinatario;
     private String telefonoRemitente;
     private String email;
-    private LocalDateTime fechaPedido;
-    private LocalDateTime fechaEntrega;
-    private LocalDate fechaEstimadaEntrega;
+    private String fechaPedido;
+    private String fechaEntrega;
+    private String fechaEstimadaEntrega;
     private String estado;
     private String coordenadas;
     private String observaciones;
     private Double peso;
     private Double volumen;
     private int precioTotal;
-
-    
-    public Pedido(int id, String nomDestinatario, String nomRemitente, String direccion, String pais, String ciudad,
-            String codigoPostal, String telefonoDestinatario, String telefonoRemitente, String email,
-            LocalDateTime fechaPedido, LocalDateTime fechaEntrega, LocalDate fechaEstimadaEntrega, String estado,
-            String coordenadas, String observaciones, Double peso, Double volumen, int precioTotal) {
-        this.id = id;
-        this.nomDestinatario = nomDestinatario;
-        this.nomRemitente = nomRemitente;
-        this.direccion = direccion;
-        this.pais = pais;
-        this.ciudad = ciudad;
-        this.codigoPostal = codigoPostal;
-        this.telefonoDestinatario = telefonoDestinatario;
-        this.telefonoRemitente = telefonoRemitente;
-        this.email = email;
-        this.fechaPedido = fechaPedido;
-        this.fechaEntrega = fechaEntrega;
-        this.fechaEstimadaEntrega = fechaEstimadaEntrega;
-        this.estado = estado;
-        this.coordenadas = coordenadas;
-        this.observaciones = observaciones;
-        this.peso = peso;
-        this.volumen = volumen;
-        this.precioTotal = precioTotal;
-    }
     public int getId() {
         return id;
     }
@@ -109,22 +83,22 @@ public class Pedido {
     public void setEmail(String email) {
         this.email = email;
     }
-    public LocalDateTime getFechaPedido() {
+    public String getFechaPedido() {
         return fechaPedido;
     }
-    public void setFechaPedido(LocalDateTime fechaPedido) {
+    public void setFechaPedido(String fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
-    public LocalDateTime getFechaEntrega() {
+    public String getFechaEntrega() {
         return fechaEntrega;
     }
-    public void setFechaEntrega(LocalDateTime fechaEntrega) {
+    public void setFechaEntrega(String fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
-    public LocalDate getFechaEstimadaEntrega() {
+    public String getFechaEstimadaEntrega() {
         return fechaEstimadaEntrega;
     }
-    public void setFechaEstimadaEntrega(LocalDate fechaEstimadaEntrega) {
+    public void setFechaEstimadaEntrega(String fechaEstimadaEntrega) {
         this.fechaEstimadaEntrega = fechaEstimadaEntrega;
     }
     public String getEstado() {
@@ -163,6 +137,31 @@ public class Pedido {
     public void setPrecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
+    public Pedido(int id, String nomDestinatario, String nomRemitente, String direccion, String pais, String ciudad,
+            String codigoPostal, String telefonoDestinatario, String telefonoRemitente, String email,
+            String fechaPedido, String fechaEntrega, String fechaEstimadaEntrega, String estado, String coordenadas,
+            String observaciones, Double peso, Double volumen, int precioTotal) {
+        this.id = id;
+        this.nomDestinatario = nomDestinatario;
+        this.nomRemitente = nomRemitente;
+        this.direccion = direccion;
+        this.pais = pais;
+        this.ciudad = ciudad;
+        this.codigoPostal = codigoPostal;
+        this.telefonoDestinatario = telefonoDestinatario;
+        this.telefonoRemitente = telefonoRemitente;
+        this.email = email;
+        this.fechaPedido = fechaPedido;
+        this.fechaEntrega = fechaEntrega;
+        this.fechaEstimadaEntrega = fechaEstimadaEntrega;
+        this.estado = estado;
+        this.coordenadas = coordenadas;
+        this.observaciones = observaciones;
+        this.peso = peso;
+        this.volumen = volumen;
+        this.precioTotal = precioTotal;
+    }
+
 
 
 }
