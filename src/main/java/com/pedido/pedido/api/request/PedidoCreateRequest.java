@@ -69,4 +69,6 @@ public class PedidoCreateRequest {
 
     @NotNull
     private int precioTotal;
+    
+    private String estado;
 }
