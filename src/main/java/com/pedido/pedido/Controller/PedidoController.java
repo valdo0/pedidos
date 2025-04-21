@@ -55,6 +55,12 @@ public class PedidoController {
     @PostMapping
     public ResponseEntity<Pedido> createPedido(@RequestBody PedidoCreateRequest pedido) {
         logger.info("Creating new Pedido: {}", pedido);
+        if(pedido.getEstado() != null) {
+            if(!pedido.getEstado().equals("Entregado") && !pedido.getEstado().equals("Pendiente") && !pedido.getEstado().equals("En Camino") ) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+
         Pedido createdPedido = pedidoService.createPedido(pedido);
         logger.info("Pedido created: {}", createdPedido);
         return new ResponseEntity<>(createdPedido, HttpStatus.CREATED);
@@ -79,6 +85,9 @@ public class PedidoController {
         if (updatedPedido == null) {
             logger.error("Pedido not found with id: {}", id);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        if(!pedido.getEstado().equals("Entregado") && !pedido.getEstado().equals("Pendiente") && !pedido.getEstado().equals("En Camino")) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         logger.info("Pedido updated: {}", updatedPedido);
         return new ResponseEntity<>(updatedPedido, HttpStatus.OK);
