@@ -3,165 +3,86 @@ package com.pedido.pedido.Model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+
+@Entity
+@Table(name = "pedido")
 public class Pedido {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
     private String nomDestinatario;
+    
+    @NotNull
     private String nomRemitente;
+
+    @NotNull
     private String direccion;
+
+    @NotNull
     private String pais;
+
+    @NotNull
     private String ciudad;
+
+    @NotNull
     private String codigoPostal;
+
+    @NotNull
+    @Size (min = 8, max = 20)
     private String telefonoDestinatario;
+
+    @NotNull
+    @Size (min = 8, max = 20)
     private String telefonoRemitente;
+
+    @NotNull
+    @Email
     private String email;
-    private String fechaPedido;
-    private String fechaEntrega;
-    private String fechaEstimadaEntrega;
-    private String estado;
+
+
+    @Builder.Default
+    private LocalDateTime fechaPedido = LocalDateTime.now();
+
+
+    private LocalDateTime fechaEntrega;
+
+    @NotNull
+    private LocalDate fechaEstimadaEntrega ;
+
+    @Builder.Default
+    private String estado = "Pendiente";
+
+    @NotNull
     private String coordenadas;
+    
+    @NotNull
     private String observaciones;
+    @NotNull
     private Double peso;
+
+    @NotNull
     private Double volumen;
+
+    @NotNull
     private int precioTotal;
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getNomDestinatario() {
-        return nomDestinatario;
-    }
-    public void setNomDestinatario(String nomDestinatario) {
-        this.nomDestinatario = nomDestinatario;
-    }
-    public String getNomRemitente() {
-        return nomRemitente;
-    }
-    public void setNomRemitente(String nomRemitente) {
-        this.nomRemitente = nomRemitente;
-    }
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    public String getPais() {
-        return pais;
-    }
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-    public String getCiudad() {
-        return ciudad;
-    }
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-    public String getCodigoPostal() {
-        return codigoPostal;
-    }
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
-    }
-    public String getTelefonoDestinatario() {
-        return telefonoDestinatario;
-    }
-    public void setTelefonoDestinatario(String telefonoDestinatario) {
-        this.telefonoDestinatario = telefonoDestinatario;
-    }
-    public String getTelefonoRemitente() {
-        return telefonoRemitente;
-    }
-    public void setTelefonoRemitente(String telefonoRemitente) {
-        this.telefonoRemitente = telefonoRemitente;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getFechaPedido() {
-        return fechaPedido;
-    }
-    public void setFechaPedido(String fechaPedido) {
-        this.fechaPedido = fechaPedido;
-    }
-    public String getFechaEntrega() {
-        return fechaEntrega;
-    }
-    public void setFechaEntrega(String fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
-    }
-    public String getFechaEstimadaEntrega() {
-        return fechaEstimadaEntrega;
-    }
-    public void setFechaEstimadaEntrega(String fechaEstimadaEntrega) {
-        this.fechaEstimadaEntrega = fechaEstimadaEntrega;
-    }
-    public String getEstado() {
-        return estado;
-    }
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    public String getCoordenadas() {
-        return coordenadas;
-    }
-    public void setCoordenadas(String coordenadas) {
-        this.coordenadas = coordenadas;
-    }
-    public String getObservaciones() {
-        return observaciones;
-    }
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-    public Double getPeso() {
-        return peso;
-    }
-    public void setPeso(Double peso) {
-        this.peso = peso;
-    }
-    public Double getVolumen() {
-        return volumen;
-    }
-    public void setVolumen(Double volumen) {
-        this.volumen = volumen;
-    }
-    public int getPrecioTotal() {
-        return precioTotal;
-    }
-    public void setPrecioTotal(int precioTotal) {
-        this.precioTotal = precioTotal;
-    }
-    public Pedido(int id, String nomDestinatario, String nomRemitente, String direccion, String pais, String ciudad,
-            String codigoPostal, String telefonoDestinatario, String telefonoRemitente, String email,
-            String fechaPedido, String fechaEntrega, String fechaEstimadaEntrega, String estado, String coordenadas,
-            String observaciones, Double peso, Double volumen, int precioTotal) {
-        this.id = id;
-        this.nomDestinatario = nomDestinatario;
-        this.nomRemitente = nomRemitente;
-        this.direccion = direccion;
-        this.pais = pais;
-        this.ciudad = ciudad;
-        this.codigoPostal = codigoPostal;
-        this.telefonoDestinatario = telefonoDestinatario;
-        this.telefonoRemitente = telefonoRemitente;
-        this.email = email;
-        this.fechaPedido = fechaPedido;
-        this.fechaEntrega = fechaEntrega;
-        this.fechaEstimadaEntrega = fechaEstimadaEntrega;
-        this.estado = estado;
-        this.coordenadas = coordenadas;
-        this.observaciones = observaciones;
-        this.peso = peso;
-        this.volumen = volumen;
-        this.precioTotal = precioTotal;
-    }
-
-
-
 }
