@@ -69,6 +69,7 @@ public class PedidoServiceImp implements PedidoService  {
 			existingPedido.setPeso(pedido.getPeso());
 			existingPedido.setVolumen(pedido.getVolumen());
 			existingPedido.setPrecioTotal(pedido.getPrecioTotal());
+			existingPedido.setEstado(pedido.getEstado());
 
 			return pedidoRepository.save(existingPedido);
 		}
@@ -135,6 +136,9 @@ public class PedidoServiceImp implements PedidoService  {
 			}
 			if (pedido.getPrecioTotal() != 0) {
 				existingPedido.setPrecioTotal(pedido.getPrecioTotal());
+			}
+			if(pedido.getEstado() != null) {
+				existingPedido.setEstado(pedido.getEstado());
 			}
 			
 			return pedidoRepository.save(existingPedido);
