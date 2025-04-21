@@ -96,6 +96,15 @@ public class PedidoController {
     @PatchMapping("/{id}")
     public ResponseEntity<Pedido> patchPedido(@PathVariable Long id, @RequestBody PedidoPatchRequest pedido) {
         logger.info("Patching Pedido with id: {}", id);
+        if(pedidoService.getPedidoById(id) == null) {
+            logger.error("Pedido not found with id: {}", id);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        if(pedido.getEstado() != null) {
+            if(!pedido.getEstado().equals("Entregado") && !pedido.getEstado().equals("Pendiente") && !pedido.getEstado().equals("En Camino")) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
         Pedido patchedPedido = pedidoService.patchPedido(id, pedido);
         if (patchedPedido == null) {
             logger.error("Pedido not found with id: {}", id);
