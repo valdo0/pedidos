@@ -17,6 +17,10 @@ import lombok.Data;
 @Data
 @Builder
 public class PedidoCreateRequest {
+    public PedidoCreateRequest() {
+        //TODO Auto-generated constructor stub
+    }
+
     @NotNull
     private String nomDestinatario;
     
