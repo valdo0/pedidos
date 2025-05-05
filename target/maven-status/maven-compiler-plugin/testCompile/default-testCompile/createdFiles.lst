@@ -1,1 +1,4 @@
+com/pedido/pedido/repository/PedidoRepositoryTest.class
+com/pedido/pedido/service/PedidoServiceTest.class
 com/pedido/pedido/PedidoApplicationTests.class
+com/pedido/pedido/controller/PedidoControllerTest.class
